@@ -1,31 +1,35 @@
 import React from 'react';
-import { connect } from 'react-redux';
-//import axios from 'axios';
-import { fetchHomes } from '../actions/homeAction';
+import { GoogleApiWrapper } from 'google-maps-react';
+
 
 import HomeList from './HomeList';
+import MapContainer from './MapContainer';
+import { Container } from 'semantic-ui-react';
 
 class App extends React.Component{
-  componentDidMount(){
-    this.props.dispatch(fetchHomes());
-    //console.log("componentDisMount");
-  }
-
+  
   render() {
     return (
-      <HomeList />
+      <Container>
+        <div className="ui grid">
+          <div className="six wide column"> 
+            <HomeList />
+          </div>
+          <div className="ten wide column"> 
+            <MapContainer google={this.props.google} />
+          </div>
+          {/* <Button onClick={() => this.props.testDispatch()} content="TEST CLICK DISPATCH" primary /> */}
+        </div>
+      </Container>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    data: state.homeReducer.data,
-    loading: state.homeReducer.loading,
-    error: state.homeReducer.error
-  }
-}
+// const mapDispatchToProps = dispatch => ({
+//   testDispatch: () => dispatch(testDispatch()),
+//   fetchHomes: () => dispatch(fetchHomes())
+// });
 
-export default connect(
-  mapStateToProps
-)(App);
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyA-byULeVbrQcP3pJ4C9C_z53kL27EuSWw',
+})(App);

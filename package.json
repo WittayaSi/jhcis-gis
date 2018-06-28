@@ -8,6 +8,7 @@
     "babel-preset-es2015": "^6.24.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
+    "google-maps-react": "^2.0.2",
     "mysql": "^2.15.0",
     "nodemon": "^1.17.5",
     "prop-types": "^15.6.2",

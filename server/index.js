@@ -21,6 +21,17 @@ app.get('/api/homes', (req, res)=>{
     });
 });
 
+app.get('/api/village', (req, res)=>{
+    //console.log(req);
+    con.query(get_houses, (err, results)=>{
+        if(err) throw err
+        return res.send({
+            error   : false,
+            data    : results
+        });
+    });
+});
+
 app.get('/*', (req, res)=>{
     res.sendFile(path.join(__dirname, './index.html'));
 });
