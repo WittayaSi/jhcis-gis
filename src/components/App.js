@@ -1,35 +1,25 @@
 import React from 'react';
-import { GoogleApiWrapper } from 'google-maps-react';
+import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
+import IndexPage from './pages/IndexPage';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
+import UserRoute from './routes/UserRoute';
+import GuestRoute from './routes/GuestRoute';
 
-import HomeList from './HomeList';
-import MapContainer from './MapContainer';
-import { Container } from 'semantic-ui-react';
+const App = ({location}) => (
+  <div className="ui container">
+    <Route location={location} path="/" exact component={IndexPage} />
+    <GuestRoute location={location} path="/login" exact component={LoginPage} />
+    <UserRoute location={location} path="/dashboard" exact component={DashboardPage} />
+  </div>
+)
 
-class App extends React.Component{
-  
-  render() {
-    return (
-      <Container>
-        <div className="ui grid">
-          <div className="six wide column"> 
-            <HomeList />
-          </div>
-          <div className="ten wide column"> 
-            <MapContainer google={this.props.google} />
-          </div>
-          {/* <Button onClick={() => this.props.testDispatch()} content="TEST CLICK DISPATCH" primary /> */}
-        </div>
-      </Container>
-    );
-  }
+App.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  }).isRequired
 }
 
-// const mapDispatchToProps = dispatch => ({
-//   testDispatch: () => dispatch(testDispatch()),
-//   fetchHomes: () => dispatch(fetchHomes())
-// });
-
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyA-byULeVbrQcP3pJ4C9C_z53kL27EuSWw',
-})(App);
+export default App;

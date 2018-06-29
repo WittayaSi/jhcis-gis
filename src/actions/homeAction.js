@@ -1,8 +1,9 @@
 import axios from 'axios';
-
-export const FETCH_HOMES_BEGIN   = 'FETCH_HOMES_BEGIN';
-export const FETCH_HOMES_SUCCESS = 'FETCH_HOMES_SUCCESS';
-export const FETCH_HOMES_FAILURE = 'FETCH_HOMES_FAILURE';
+import { 
+    FETCH_HOMES_BEGIN,
+    FETCH_HOMES_FAILURE,
+    FETCH_HOMES_SUCCESS 
+} from '../types';
 
 export const getAllhouse = () => {
     return dispatch => {

@@ -1,14 +1,23 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+
 import con from './models/dbconnection';
 import { get_houses, get_village } from './models/querycommand';
+import auth from './routes/auth';
 
 let app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+app.use('/api/auth', auth);
+
+// app.post('/api/auth', (req, res) => {
+//     res.status(400).json({errors: {global: "Invalid credentials"}});
+// })
 
 app.get('/api/homes', (req, res)=>{
     //console.log(req);

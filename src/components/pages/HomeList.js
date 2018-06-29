@@ -32,7 +32,7 @@ class HomeList extends React.Component{
             return <div>Error! {error.message}</div>;
         }
         return(
-            <div style={{ marginTop: '5em' }}>
+            <div style={{ marginTop: '3em' }}>
                 <div>
                     <Form style={{ textAlign: 'center' }}>
                         <Form.Field inline>
@@ -65,11 +65,11 @@ HomeList.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        data: state.homeReducer.data,
-        loading: state.homeReducer.loading,
-        error: state.homeReducer.error,
-        villages: state.villageReducer.villages,
-        currentv: state.villageReducer.currentv
+        data: state.homes.data,
+        loading: state.homes.loading,
+        error: state.homes.error,
+        villages: state.villages.villages,
+        currentv: state.villages.currentv
     }
 }
 

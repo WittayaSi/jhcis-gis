@@ -3,7 +3,7 @@ import {
     GET_VILLAGE_SUCCESS,
     GET_VILLAGE_FAILURE,
     SET_CURRENT_V
-} from '../actions/villageAction';
+} from '../types';
 
 const initialState = {
     currentv: {},

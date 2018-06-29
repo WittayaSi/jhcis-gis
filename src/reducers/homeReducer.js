@@ -2,7 +2,7 @@ import {
     FETCH_HOMES_BEGIN,
     FETCH_HOMES_SUCCESS,
     FETCH_HOMES_FAILURE
-} from '../actions/homeAction';
+} from '../types';
 
 const initialState = {
     data: [],

@@ -1,9 +1,10 @@
 import axios from 'axios';
-
-export const GET_VILLAGE_BEGIN   = 'GET_VILLAGE_BEGIN';
-export const GET_VILLAGE_SUCCESS = 'GET_VILLAGE_SUCCESS';
-export const GET_VILLAGE_FAILURE = 'GET_VILLAGE_FAILURE';
-export const SET_CURRENT_V = 'SET_CURRENT_V';
+import {
+    GET_VILLAGE_BEGIN,
+    GET_VILLAGE_SUCCESS,
+    GET_VILLAGE_FAILURE,
+    SET_CURRENT_V
+} from '../types'
 
 export const getAllVillage = () => {
     return dispatch => {
