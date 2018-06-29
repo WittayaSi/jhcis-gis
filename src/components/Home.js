@@ -7,7 +7,7 @@ const Home = props => {
     return(
             <Segment style={{ padding: '.25em 1em .25em 1em' }} 
                 clearing
-                color={(home.xgis==null || home.xgis==null || home.xgis=="" || home.xgis=="") ? 'red' : 'green'}>
+                color={(home.xgis===null || home.xgis===null || home.xgis==="" || home.xgis==="") ? 'red' : 'green'}>
                 <Grid columns={1}>
                     <Grid.Column verticalAlign='middle'>
                         รหัสบ้าน: {home.hcode} , บ้านเลขที่: {home.hno}

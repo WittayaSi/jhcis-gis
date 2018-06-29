@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux';
 //import { Container } from 'semantic-ui-react';
 import { getAllhouse, testDispatch } from '../actions/homeAction';
+import { getAllVillage } from '../actions/villageAction';
 
  class MapContainer extends Component {
 
   componentDidMount(){
     this.props.getAllhouse();
+    this.props.getAllVillage();
   }
 
   componentDidUpdate() {
@@ -77,7 +79,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   testDispatch: () => dispatch(testDispatch()),
-  getAllhouse: () => dispatch(getAllhouse())
+  getAllhouse: () => dispatch(getAllhouse()),
+  getAllVillage: () => dispatch(getAllVillage())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapContainer);

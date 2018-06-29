@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import con from './models/dbconnection';
-import { get_houses } from './models/querycommand';
+import { get_houses, get_village } from './models/querycommand';
 
 let app = express();
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ app.get('/api/homes', (req, res)=>{
 
 app.get('/api/village', (req, res)=>{
     //console.log(req);
-    con.query(get_houses, (err, results)=>{
+    con.query(get_village, (err, results)=>{
         if(err) throw err
         return res.send({
             error   : false,
