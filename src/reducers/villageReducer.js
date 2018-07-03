@@ -24,8 +24,7 @@ const villageReducer = (state=initialState, action)=>{
             return {
                 ...state,
                 loading: false,
-                villages: action.payload.village,
-                currentv: action.payload.village[0]
+                villages: action.payload.village
             };
       
         case GET_VILLAGE_FAILURE:
@@ -38,7 +37,7 @@ const villageReducer = (state=initialState, action)=>{
         case SET_CURRENT_V:
             return {
                 ...state,
-                currentv: action.payload.currentv
+                currentv: action.v
             };
         default:
             return state;

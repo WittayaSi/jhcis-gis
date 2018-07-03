@@ -2656,6 +2656,10 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
+expired-storage@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/expired-storage/-/expired-storage-1.0.2.tgz#0c494185ca58149dc949b846ad8eb7c97fc52933"
+
 express@^4.13.3:
   version "4.16.3"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.3.tgz#6af8a502350db3246ecc4becf6b5a34d22f7ed53"

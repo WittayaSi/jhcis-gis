@@ -13,10 +13,14 @@ export const userLoggedOut = () => ({
 export const login = (credentials) => (dispatch) => 
     api.user.login(credentials).then(user => {
         localStorage.jhcisgisJWT = user.token;
+        localStorage.jhcisgisUSR = btoa(user.username);
+        sessionStorage.setItem('jhcisgisUSR', user.username);
         dispatch(userLoggedIn(user));
     });
 
 export const logout = () => (dispatch) => {
-        localStorage.removeItem('jhcisgisJWT');
+        //localStorage.removeItem('jhcisgisJWT');
+        //localStorage.removeItem('jhcisgisUSR');
+        localStorage.clear();
         dispatch(userLoggedOut());
     };

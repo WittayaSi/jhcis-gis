@@ -8,7 +8,7 @@ import { getAllVillage } from '../../actions/villageAction';
 class MapContainer extends Component {
 
   componentDidMount() {
-    this.props.getAllhouse();
+    //this.props.getAllhouse();
     this.props.getAllVillage();
   }
 

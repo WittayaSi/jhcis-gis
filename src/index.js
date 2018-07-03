@@ -20,7 +20,7 @@ const store = createStore(
 );
 
 if(localStorage.jhcisgisJWT){
-    const user = { token: localStorage.jhcisgisJWT };
+    const user = { token: localStorage.jhcisgisJWT , username: localStorage.jhcisgisUSR };
     store.dispatch(userLoggedIn(user));
 }
 

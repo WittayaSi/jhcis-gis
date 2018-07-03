@@ -7,26 +7,26 @@ import {
 
 export const getAllhouse = () => {
     return dispatch => {
-        dispatch(begin());
+        dispatch(beginHouse());
         axios.get('/api/homes')
             .then((res)=>{
                 //console.log(res.data.data)
-                dispatch(success(res.data.data));
+                dispatch(successHouse(res.data.data));
             })
             .catch(err=>dispatch(failure(err)));
     }
 }
 
-const begin = () => ({
+export const beginHouse = () => ({
     type: FETCH_HOMES_BEGIN
 });
 
-const success = homes => ({
+export const successHouse = homes => ({
     type: FETCH_HOMES_SUCCESS,
     payload: { homes }
 });
   
-const failure = error => ({
+export const failure = error => ({
     type: FETCH_HOMES_FAILURE,
     payload: { error }
 });

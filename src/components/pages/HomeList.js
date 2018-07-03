@@ -2,11 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Home from './Home';
-import { Form, Label, Dropdown, Divider } from 'semantic-ui-react';
+import { Form, Label, Dropdown, Divider, Message } from 'semantic-ui-react';
+
+import { setCurrentV } from '../../actions/villageAction';
 
 class HomeList extends React.Component{
 
-    handleChange = (e, { value }) => this.setState({ value })
+    onChange = (e, data) => {
+        const v = data.options.filter(d => d.key === data.value);
+        this.props.setCurrentV(v[0]);
+    }
 
     render(){
         // const options = [
@@ -33,24 +38,32 @@ class HomeList extends React.Component{
         }
         return(
             <div style={{ marginTop: '3em' }}>
+
+                <div className={loading ? 'ui active loader' : ''}></div>
+
                 <div>
                     <Form style={{ textAlign: 'center' }}>
                         <Form.Field inline>
-                            <Label pointing='right'>หมู่ที่ : </Label>
+                            <Label pointing='right'>(หมู่ที่)บ้าน : </Label>
                             <Dropdown 
                                 placeholder='เลือกหมู่...' 
                                 selection 
                                 options={vill_options}
-                                value={this.props.currentv.villcode}
-                                onChange={ this.handleChange }
+                                value={this.props.currentv.key}
+                                onChange={ this.onChange }
                             />
                         </Form.Field>
                     </Form>
                 </div>
                 <Divider/>
-                <div className={loading ? 'ui active loader' : ''}></div>
                 <div style={style}>
-                    { data.map(d => <Home key={d.hcode} home={d}/>) }
+                    { 
+                        !loading && (
+                            data.length !== 0 ? 
+                            data.map(d => <Home key={d.hcode} home={d}/>) : 
+                            <Message negative style={{ textAlign: 'center' }}>No Results</Message> 
+                        )
+                    }
                 </div>
             </div>
         )
@@ -73,4 +86,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(HomeList);
+export default connect(mapStateToProps, { setCurrentV })(HomeList);

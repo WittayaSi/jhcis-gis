@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+//import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import IndexPage from './pages/IndexPage';
@@ -10,7 +10,7 @@ import GuestRoute from './routes/GuestRoute';
 
 const App = ({location}) => (
   <div className="ui container">
-    <Route location={location} path="/" exact component={IndexPage} />
+    <GuestRoute location={location} path="/" exact component={IndexPage} />
     <GuestRoute location={location} path="/login" exact component={LoginPage} />
     <UserRoute location={location} path="/dashboard" exact component={DashboardPage} />
   </div>

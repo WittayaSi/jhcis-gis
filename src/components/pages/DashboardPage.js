@@ -8,9 +8,10 @@ import NavigationBar from './NavigationBar';
 class DashboarPage extends React.Component{
   
   render() {
+    const { location } = this.props;
     return (
       <div>
-        <NavigationBar />
+        <NavigationBar location={location} />
         {this.props.children}
         <div className="ui grid">
           <div className="six wide column"> 
